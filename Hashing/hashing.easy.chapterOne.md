@@ -1,4 +1,4 @@
-## 1 `Find the first non-repeating element in a given array arr of integers and if there is not present any non-repeating element then return 0.`
+### 1 `Find the first non-repeating element in a given array arr of integers and if there is not present any non-repeating element then return 0.`
 ```
 int firstNonRepeating(vector<int>& arr) {
         
@@ -20,7 +20,7 @@ int firstNonRepeating(vector<int>& arr) {
 }
 ```
 
-## 2. `Given an array of integers arr[], sort the array according to the frequency of elements, i.e. elements that have higher frequency comes first. If the frequencies of two elements are the same, then the smaller number comes first.`
+### 2. `Given an array of integers arr[], sort the array according to the frequency of elements, i.e. elements that have higher frequency comes first. If the frequencies of two elements are the same, then the smaller number comes first.`
 ```
 vector<int> sortByFreq(vector<int>& arr) {
         
@@ -59,7 +59,7 @@ vector<int> sortByFreq(vector<int>& arr) {
 }
 ```
 
-## 3. `Given an array arr[], find the first repeating element index. The element should occur more than once and the index of its first occurrence should be the smallest.`
+### 3. `Given an array arr[], find the first repeating element index. The element should occur more than once and the index of its first occurrence should be the smallest.`
 
 `Note:- The position you return should be according to 1-based indexing`. 
 Example:
