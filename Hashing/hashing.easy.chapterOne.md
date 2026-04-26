@@ -1,5 +1,5 @@
-1. `Find the first non-repeating element in a given array arr of integers and if there is not present any non-repeating element then return 0.`
-
+## 1 `Find the first non-repeating element in a given array arr of integers and if there is not present any non-repeating element then return 0.`
+```
 int firstNonRepeating(vector<int>& arr) {
         
         int N=arr.size();
@@ -18,10 +18,10 @@ int firstNonRepeating(vector<int>& arr) {
         
         return 0;
 }
+```
 
-
-2. `Given an array of integers arr[], sort the array according to the frequency of elements, i.e. elements that have higher frequency comes first. If the frequencies of two elements are the same, then the smaller number comes first.`
-
+## 2. `Given an array of integers arr[], sort the array according to the frequency of elements, i.e. elements that have higher frequency comes first. If the frequencies of two elements are the same, then the smaller number comes first.`
+```
 vector<int> sortByFreq(vector<int>& arr) {
         
         int N=arr.size();
@@ -57,16 +57,16 @@ vector<int> sortByFreq(vector<int>& arr) {
         return result;
         
 }
+```
 
-
-3. `Given an array arr[], find the first repeating element index. The element should occur more than once and the index of its first occurrence should be the smallest.`
+## 3. `Given an array arr[], find the first repeating element index. The element should occur more than once and the index of its first occurrence should be the smallest.`
 
 `Note:- The position you return should be according to 1-based indexing`. 
 Example:
 Input: arr[] = [1, 5, 3, 4, 3, 5, 6]
 Output: 2
 Explanation: 5 appears twice and its first appearance is at index 2 which is less than 3 whose first the occurring index is 3.
-
+```
 int firstRepeated(vector<int> &arr) {
         int N=arr.size();
         unordered_map<int,int>freqMap;
@@ -94,6 +94,7 @@ int firstRepeated(vector<int> &arr) {
             }
         }
         
-        return minIndex==INT_MAX?-1:minIndex+1;
+    return minIndex==INT_MAX?-1:minIndex+1;
         
 }
+```
