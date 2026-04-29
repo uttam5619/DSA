@@ -1,5 +1,6 @@
 ## leetcode 1456.
-`Maximum Number of vowels in a subs tring of given length`
+### Maximum Number of vowels in a subs tring of given length
+`Given a string s and an integer k, return the maximum number of vowel letters in any substring of s with length k.`
 
 ```
     bool isVowel(char ch){
