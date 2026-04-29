@@ -39,6 +39,6 @@ Return the max sliding window.`
 
 `To solve this problem we will use the monotonic deque. The code of monotonic deque will always contain the "while"
 condition instead of "if" condition, because if we are using the "if" condition to deal with monotonicity then if the
-first element of the window is the largest in the window , and because of the we are not allowing any element to let
-in the deque, then during the poping out for the next window, the front elment will get pop out and we will have nothing in the deque if the upcoming element is smaller than all the other elements existing in the window  
+first element of the window is the largest in the window , and because of it we are not allowing any other element smaller than it to let in the deque, then during the poping out for the very next upcoming window, the front elment
+will get pop out and we will have nothing in the deque if the upcoming element is smaller than all the other elements existing in the window.  
 `
