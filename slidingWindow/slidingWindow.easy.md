@@ -36,3 +36,6 @@
         return maxLength;
     }
 ```
+`In the deq we are inserting the index, and not the character because,
+during the poping out of the elements, which do not belongs to the window
+the index helps to find out such elements`
