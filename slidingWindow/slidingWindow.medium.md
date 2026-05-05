@@ -54,4 +54,4 @@ int main(){
 ```
 `"count+=(N-head)".This thing is the most important insight from the question, because if we count the subArray 
 as count+=1 then it will count only one sub array that is starting from index "tail" and ending at index "head", this
-will lead to the discarding of all the subarrays which has starrting index as "tail" and ending greater than "head", because any subarry with starting index as "tail", and ending index as some index greater than "head", will always have the sum > K.`
+will lead to the discarding of all the subarrays which has starrting index as "tail" and ending index greater than "head", because any subarry with starting index as "tail", and ending index as some index greater than "head" for the given subarray satisfying the condition, will always have the sum > K.`
