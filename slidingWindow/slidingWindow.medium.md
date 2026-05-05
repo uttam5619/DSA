@@ -55,3 +55,45 @@ int main(){
 `"count+=(N-head)".This thing is the most important insight from the question, because if we count the subArray 
 as count+=1 then it will count only one sub array that is starting from index "tail" and ending at index "head", this
 will lead to the discarding of all the subarrays which has starrting index as "tail" and ending index greater than "head", because any subarry with starting index as "tail", and ending index as some index greater than "head" for the given subarray satisfying the condition, will always have the sum > K.`
+
+
+## leetcode 2134
+### Minimum swap to group all 1's together.
+
+`A swap is defined as taking two distinct positions in an array and swapping the values in them.A circular array is defined as an array where we consider the first element and the last element to be adjacent. Given a binary circular array nums, return the minimum number of swaps required to group all 1's present in the array together at any location.`
+
+```
+int minSwaps(vector<int>& nums) {
+        int N=nums.size();
+        int countOne=0;
+
+        int totalOnes=0;
+        for(int i=0; i<N; i++){
+            if(nums[i]==1)totalOnes++;
+        }
+
+        if(totalOnes==0)return 0;
+
+        int windowSize=totalOnes;
+        for(int i=0; i<windowSize-1; i++){
+            if(nums[i]==1){
+                countOne++;
+            }
+        }
+
+        int windowWithMaxOne=0;
+        vector<int> temp = nums;
+        nums.insert(nums.end(), temp.begin(), temp.end());
+
+        for(int i=windowSize-1; i<nums.size(); i++){
+            if(nums[i]==1)countOne++;
+
+            windowWithMaxOne=max(windowWithMaxOne,countOne);
+
+            if(nums[i-windowSize+1]==1)countOne--;
+        }
+
+        return windowSize-windowWithMaxOne;
+    }
+```
+`First we will find how many 1's are there, so that we can have our window size. Then we will find the window with maximum number of 1's. Suppose the window with maximum number of 1's has 'm' 1's and 'n' 0's, then in such case we need to make n swaps to group all 1 together `
