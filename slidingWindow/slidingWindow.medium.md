@@ -97,3 +97,29 @@ int minSwaps(vector<int>& nums) {
     }
 ```
 `First we will find how many 1's are there, so that we can have our window size. Then we will find the window with maximum number of 1's. Suppose the window with maximum number of 1's has 'm' 1's and 'n' 0's, then in such case we need to make n swaps to group all 1 together `
+
+## leetcode 3254
+### Find the power of K size subArray
+
+```
+vector<int> resultsArray(vector<int>& nums, int k) {
+
+        int N=nums.size();
+        if(N==1)return {nums[0]};
+
+        vector<int>result(N-k+1,-1);
+
+        for(int i=0; i<N-k+1; i++){
+            int current=i;
+            while(current+1<i+k && nums[current+1]-nums[current]==1){
+                current+=1;
+            }
+
+            if(current==i+k-1){
+                result[i]=nums[current];
+            }
+        }
+
+        return result;
+    }
+```
