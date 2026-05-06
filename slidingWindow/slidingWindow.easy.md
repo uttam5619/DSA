@@ -145,3 +145,30 @@ bool containsNearbyDuplicate(vector<int>& nums, int k) {
         return false;
     }
 ```
+
+## leetcode 560
+### SubArray Sum equals to K.
+
+`Given an array of integers nums and an integer k, return the total number of subarrays whose sum equals to k. A subarray is a contiguous non-empty sequence of elements within an array.`
+
+```
+int subarraySum(vector<int>& nums, int k) {
+
+        int N= nums.size();
+        vector<int>prefix(N+1,0);
+        unordered_map<int,int>mp;
+        mp.insert({0,1});
+        int subArrayCount=0;
+
+        for(int i=0; i<N; i++){
+            prefix[i+1]=prefix[i]+nums[i];
+            if(mp.find(prefix[i+1]-k)!=mp.end() ){
+                subArrayCount+=mp[prefix[i+1]-k];
+            }
+            mp[prefix[i+1]]++;
+            
+        }
+
+        return subArrayCount;
+    }
+```
