@@ -95,3 +95,53 @@ bool checkInclusion(string s1, string s2) {
 ```
 
 `We do not need to sort the compplete s2, to check the equality we need to check that wherether the new arrangement sort(s1.begin(),s1.end()) is equal to the new arrangment of the substring of s2 that is  sort(temp.begin(),temp.end())`
+
+
+## leetcode 219.
+### Contains Duplicate II
+
+`Given an integer array nums and an integer k, return true if there are two distinct indices i and j in the array such that nums[i] == nums[j] and abs(i - j) <= k.`
+```
+bool containsNearbyDuplicate(vector<int>& nums, int k) {
+        int head=-1;
+        int tail=0;
+        int N=nums.size();
+
+        unordered_map<int,int>mp; // stores number and its last seen index
+
+        /*
+        while(tail<N){
+            
+            while(head+1<N && head+1-tail<=k){
+                head=head+1;
+                if(st.find(nums[head])!=st.end()){
+                    return true;
+                }else{
+                    st.insert(nums[head]);
+                }
+            }
+
+            if(head>=tail){
+                st.erase(nums[tail]);
+                tail++;
+            }else{
+                head=tail;
+                tail++;
+            }
+        }
+        */
+
+        //more appropriate solution than the previous one commented above.
+        for(int i=0; i<nums.size(); i++){
+            int currentEle=nums[i];
+            if(mp.find(currentEle)!=mp.end()){
+                if(abs(i-mp[currentEle])<=k){
+                    return true;
+                }
+            }
+            mp[currentEle]=i;
+        }
+
+        return false;
+    }
+```
