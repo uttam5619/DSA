@@ -172,3 +172,28 @@ int subarraySum(vector<int>& nums, int k) {
         return subArrayCount;
     }
 ```
+
+## Leetcode 567
+### Permutation in string
+
+`Given two strings s1 and s2, return true if s2 contains a permutation of s1, or false otherwise. In other words, return true if one of s1's permutations is the substring of s2.`
+
+```
+bool checkInclusion(string s1, string s2) {
+        sort(s1.begin(),s1.end());
+
+        int N=s1.size();
+        int M=s2.size();
+
+        if(M<N)return false;
+
+        for(int i=0; i<=M-N; i++){
+            string temp=s2.substr(i,N);
+            sort(temp.begin(),temp.end());
+            if(temp==s1){
+                return true;
+            }
+        }
+        return false;
+    }
+```
