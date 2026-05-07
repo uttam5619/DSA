@@ -172,3 +172,62 @@ vector<long long> countKConstraintSubstrings(string s, int k, vector<vector<int>
 ```
 
 This approach will give the TLE. To deal with the TLE we will optimize it.
+
+
+## leetcode 76.
+## Minimum window substring
+
+`Given two strings s and t of lengths m and n respectively, return the minimum window substring of s such that every character in t (including duplicates) is included in the window. If there is no such substring, return the empty string "".`
+
+```
+string minWindow(string s, string t) {
+        int m=s.size();
+        int n=t.size();
+
+        if(m<n)return "";
+
+        unordered_map<char,int>mp;
+        for(int i=0; i<n; i++){
+            mp[t[i]]++;
+        }
+
+        int head=-1,tail=0;
+        int count=mp.size();
+        int minWindowSize=INT_MAX;
+        int headOfMinWindow=0,tailOfMinWindow=0;
+
+        while(tail<m){
+            while(head+1<m && count>0){
+                head++;
+                if(mp.count(s[head])){
+                    mp[s[head]]--;
+                    if(mp[s[head]]==0){
+                        count--;
+                    }
+                }
+            }
+
+            if(count==0){
+               if(minWindowSize>head-tail+1){
+                    minWindowSize=head-tail+1;
+                    headOfMinWindow=head;
+                    tailOfMinWindow=tail;
+               }
+            }
+
+            if(head>=tail){
+                if(mp.count(s[tail])){
+                    if(mp[s[tail]]==0)count++;
+                    mp[s[tail]]++;
+                }
+                tail++;
+            }else{
+                head=tail;
+                tail++;
+            }
+        }
+        
+        if(minWindowSize==INT_MAX)return "";
+        return s.substr(tailOfMinWindow, headOfMinWindow-tailOfMinWindow+1);
+    }
+```
